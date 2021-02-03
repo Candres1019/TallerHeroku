@@ -3,6 +3,8 @@ package edu.escuelaing.arep.sparkweb;
 import edu.escuelaing.arep.sparkweb.util.LinkedListImp;
 import edu.escuelaing.arep.sparkweb.util.Node;
 
+import java.text.DecimalFormat;
+
 /**
  * Aplicacion de la calculadora estadistica, haciendo uso de una lista enlazada
  * implementada desde cero.
@@ -13,6 +15,7 @@ public class CalculadoraEstadistica {
     private LinkedListImp datos;
     private Double media;
     private Double desviacionEstandar;
+    private static DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
     /**
      * Constructor de la clase CalculadoraEstadistica
@@ -39,7 +42,7 @@ public class CalculadoraEstadistica {
             head = head.getNext();
         }
         media = media / datos.size();
-        return media;
+        return Double.valueOf(decimalFormat.format(media));
     }
 
     /**
@@ -59,7 +62,7 @@ public class CalculadoraEstadistica {
         }
         division = suma / (datos.size() - 1);
         desviacionEstandar = Math.sqrt(division);
-        return desviacionEstandar;
+        return Double.valueOf(decimalFormat.format(desviacionEstandar));
     }
 
     /**
@@ -78,14 +81,16 @@ public class CalculadoraEstadistica {
         this.datos = datos;
     }
 
+    /**
+     * Metodo para convertir una cadena a una lista enlazada de Double
+     * @param datosString - Cadena de datos a convertir
+     */
     public void stringToLinkedList(String datosString){
-        System.out.println("Llego a strigToLinkedList");
         this.datos = new LinkedListImp();
         String [] dataString = datosString.split(" ");
         for (String dato : dataString) {
             this.datos.add(Double.valueOf(dato));
         }
-        System.out.println("Salio sin errores de strigToLinkedList");
     }
 
 }

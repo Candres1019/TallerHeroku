@@ -6,6 +6,7 @@ import static spark.Spark.*;
 
 /**
  * Clase encargada de a conexión Web.
+ * @author Andres Mateo Calderon Ortega.
  */
 public class SparkWebApp {
 
@@ -19,15 +20,11 @@ public class SparkWebApp {
         staticFiles.location("/calculator");
         init();
         post("/calculator", (request, response) ->{
-            System.out.println("Ingreso metodo post");
-            response.status(200);
             response.type("application/json");
             CalculadoraEstadistica calculadoraEstadistica = new CalculadoraEstadistica();
             calculadoraEstadistica.stringToLinkedList(request.body());
             double media = calculadoraEstadistica.calcularMedia();
             double desviacionEstandar = calculadoraEstadistica.calcularDesviacionEstandar();
-            System.out.println("Media :" + media);
-            System.out.println("Desviacion Estandar :" + desviacionEstandar);
             return new Gson().toJson("{\"media\": \""+media+"\", \"desviacionEstandar\": \""+desviacionEstandar+"\"}") ;
         });
     }

@@ -7,12 +7,10 @@ var app = (function (){
     }
 
     function makeCalculations(){
-        console.log("LLego a la Funcion makeCalculations en js")
         if($("#datos").val() === ""){
             alert("No hay valores para calcular");
         }else{
             setDatos();
-            console.log("Guardo los datos :" + datos);
             var url = "https://fast-tor-09008.herokuapp.com/calculator";
             axios.post(url, datos)
                 .then(res => {
