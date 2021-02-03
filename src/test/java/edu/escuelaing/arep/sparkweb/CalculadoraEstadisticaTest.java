@@ -4,15 +4,12 @@ import edu.escuelaing.arep.sparkweb.util.LinkedListImp;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class CalculadoraEstadisticaTest {
 
     private ArrayList<LinkedListImp> datos;
     private CalculadoraEstadistica calculadoraEstadistica;
-    private static DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
     @Before
     public void setUp() {
@@ -59,37 +56,37 @@ public class CalculadoraEstadisticaTest {
     @Test
     public void deberiaCalcularMedia1(){
         calculadoraEstadistica.setDatos(datos.get(0));
-        Assert.assertTrue(decimalFormat.format(calculadoraEstadistica.calcularMedia()).equals("550,60"));
+        Assert.assertTrue(calculadoraEstadistica.calcularMedia().equals(new Double("550.60")));
     }
 
     @Test
     public void deberiaCalcularMedia2(){
         calculadoraEstadistica.setDatos(datos.get(1));
-        Assert.assertTrue(decimalFormat.format(calculadoraEstadistica.calcularMedia()).equals("60,32"));
+        Assert.assertTrue(calculadoraEstadistica.calcularMedia().equals(new Double("60.32")));
     }
 
     @Test
     public void deberiaCalcularMedia3(){
         calculadoraEstadistica.setDatos(datos.get(2));
-        Assert.assertTrue(decimalFormat.format(calculadoraEstadistica.calcularMedia()).equals("638,90"));
+        Assert.assertTrue(calculadoraEstadistica.calcularMedia().equals(new Double("638.90")));
     }
 
     @Test
     public void deberiaCalcularDesviacion1(){
         calculadoraEstadistica.setDatos(datos.get(0));
-        Assert.assertTrue(decimalFormat.format(calculadoraEstadistica.calcularDesviacionEstandar()).equals("572,03"));
+        Assert.assertTrue(calculadoraEstadistica.calcularDesviacionEstandar().equals(new Double("572.03")));
     }
 
     @Test
     public void deberiaCalcularDesviacion2(){
         calculadoraEstadistica.setDatos(datos.get(1));
-        Assert.assertTrue(decimalFormat.format(calculadoraEstadistica.calcularDesviacionEstandar()).equals("62,26"));
+        Assert.assertTrue(calculadoraEstadistica.calcularDesviacionEstandar().equals(new Double("62.26")));
     }
 
     @Test
     public void deberiaCalcularDesviacion3(){
         calculadoraEstadistica.setDatos(datos.get(2));
-        Assert.assertTrue(decimalFormat.format(calculadoraEstadistica.calcularDesviacionEstandar()).equals("625,63"));
+        Assert.assertTrue(calculadoraEstadistica.calcularDesviacionEstandar().equals(new Double("625.63")));
     }
 
 }
