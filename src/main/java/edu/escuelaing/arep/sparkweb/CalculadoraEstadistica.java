@@ -3,8 +3,6 @@ package edu.escuelaing.arep.sparkweb;
 import edu.escuelaing.arep.sparkweb.util.LinkedListImp;
 import edu.escuelaing.arep.sparkweb.util.Node;
 
-import java.text.DecimalFormat;
-
 /**
  * Aplicacion de la calculadora estadistica, haciendo uso de una lista enlazada
  * implementada desde cero.
@@ -15,7 +13,6 @@ public class CalculadoraEstadistica {
     private LinkedListImp datos;
     private Double media;
     private Double desviacionEstandar;
-    private static DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
     /**
      * Constructor de la clase CalculadoraEstadistica
@@ -42,7 +39,8 @@ public class CalculadoraEstadistica {
             head = head.getNext();
         }
         media = media / datos.size();
-        return Double.valueOf(decimalFormat.format(media));
+        media = Math.round(media * 100.0)/100.0;
+        return media;
     }
 
     /**
@@ -62,7 +60,8 @@ public class CalculadoraEstadistica {
         }
         division = suma / (datos.size() - 1);
         desviacionEstandar = Math.sqrt(division);
-        return Double.valueOf(decimalFormat.format(desviacionEstandar));
+        desviacionEstandar = Math.round(desviacionEstandar * 100.0)/100.0;
+        return desviacionEstandar;
     }
 
     /**
