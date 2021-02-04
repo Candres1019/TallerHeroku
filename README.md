@@ -1,8 +1,8 @@
-# TallerHeroku
+# TallerHeroku _ SparkWeb
 
-Programa diseñado en Java con el propósito de calcular la media y la desviación
-estándar de un grupo de n datos que seran extraídos de un archivo de texto, la estructura
-de datos utilizada es una implementación de una Lista Enlazada.
+Aplicativo Web diseñado en Java haciendo uso del framework Spark con el propósito de calcular la media y la desviación
+estándar de un grupo de n datos que serán ingresados por el usuario vía web, la estructura de datos utilizada es una
+implementación de una Lista Enlazada, y para la gestión de peticiones ajax se utiliza la librería js axios.
 
 ## Información Del Proyecto
 
@@ -19,6 +19,7 @@ links de como descargarlos:
 
 Adicionalmente se recomienda tener descargado los siguientes programas:
 > - [Como Instalar Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+> - [Como Instalar HerokuCli](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
 ### Despliegue en Heroku
 [![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://fast-tor-09008.herokuapp.com/)
@@ -26,15 +27,16 @@ Adicionalmente se recomienda tener descargado los siguientes programas:
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5a490e7c2a734708a02d7a1d0c1814da)](https://www.codacy.com/gh/Candres1019/TallerHeroku/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Candres1019/TallerHeroku&amp;utm_campaign=Badge_Grade)
 ### Integración Continua
 [![CircleCI](https://circleci.com/gh/Candres1019/TallerHeroku.svg?style=svg)](https://app.circleci.com/pipelines/github/Candres1019/TallerHeroku)
+
 ### Instalación
 
 1. Clonación o Descarga del Proyecto:
 
     - Para **Clonar** el proyecto utilice el siguiente comando en la ventana de comandos:
        ```
-       git clone https://github.com/Candres1019/Taller1-AREP.git
+       git clone https://github.com/Candres1019/TallerHeroku.git
        ```
-    - Para **Descargar** el proyecto de click [aquí](https://github.com/Candres1019/Taller1-AREP/archive/main.zip),
+    - Para **Descargar** el proyecto de click [aquí](https://github.com/Candres1019/TallerHeroku/archive/main.zip),
       la descarga comenzara de manera automática.
 
 2. En una ventana de comandos ejecute el siguiente comando, dentro de la carpeta del proyecto:
@@ -42,39 +44,29 @@ Adicionalmente se recomienda tener descargado los siguientes programas:
     mvn package
     ```
    Sabremos que todo salio bien, si vemos en consola lo siguiente:
-   ![](img/mvnPackage.PNG)
+   ![](./img/mvnPackage.PNG)
+   
+3. Para ejecutar la aplicación de manera local utilizamos en la ventana de comandos el siguiente comando:
+    > * Distribuciones Linux:
+    > ```
+    > java $JAVA_OPTS -cp target/classes:target/dependency/* edu.escuelaing.arep.sparkweb.SparkWebApp
+    > ```
+    > * Distribuciones Windows:
+    > ```
+    > java -cp target/classes;target/dependency/* edu.escuelaing.arep.sparkweb.SparkWebApp
+    > ```
+   Con esto podremos ver que la aplicacion esta corriendo de manera local:
+   ![](./img/aplicativoLocal.PNG)
 
-3. Por defecto en el proyecto tenemos el archivo datos.txt el cual es utilizado para realizar los cálculos por defecto
-   este archivo puede modificarlo, pero siempre teniendo el mismo sentido de los datos, es decir
-   separados por espacios en blanco y los números utilizando "." para definir decimales.
-   ![](img/datos.PNG)
+4. Para ver el aplicativo web de manera local ingresamos al siguiente enlace:
+    > ```
+    > http://localhost:4567/
+    > ```
 
-   Puede utilizar otro nombre de archivo o ruta para el mismo, pero si desea hacerlo debe de cambiar en la clase
-   App.java en la línea "21" el atributo "archivo" con la ruta o nombre del archivo nuevo que desea usar, y volver a
-   comenzar el proceso de instalación desde el punto 2.
-   ![](img/archivo.PNG)
+   Veremos que el aplicativo ya se está ejecutando localmente:
+    ![](./img/aplicativoWeb.PNG)
 
-4. El programa tiene dos modalidades de uso el modo "MultiConjuntos" que significa que cada una de las lineas del archivo
-   de texto refiere a un conjunto de números independiente por el cual tendrá salidas y cálculos para cada uno de ellos,
-   Ejemplo:
-   ![](img/resultado.PNG)
-   y el modo "UniConjunto" que significa que todo el archivo de texto es un conjunto de números por lo cual solo tendrá
-   el resultado de la media y desviación estándar de todos los datos del archivo y no por separado, Ejemplo:
-   ![](img/resultado2.PNG)
-
-   Por defecto el programa viene con el modo "MultiConjuntos", pero si desea cambiarlo debe cambiar en la clase
-   App.java en la línea "20" el atributo "Mode" con el modo que desea usar, y volver a comenzar el proceso de
-   instalación desde el punto 2.
-   ![](img/modo.PNG)
-
-5. Para ejecutar la aplicación utilizamos en la ventana de comandos el siguiente comando:
-    ```
-    java -cp target/Taller1-AREP-1.0-SNAPSHOT.jar edu.escuelaing.arep.App
-    ```
-   Con esto veremos el resultado de los datos que ingresamos anteriormente:
-   ![](img/resultado.PNG)
-
-6. Por defecto se creó la documentación JavaDoc y fue dejada en el directorio /Javadoc, si desea generar uno nuevo
+5. Por defecto se creó la documentación JavaDoc y fue dejada en el directorio /Javadoc, si desea generar uno nuevo
    utilice el siguiente comando, esta documentación quedará en el directorio /target/site/apidocs :
    ```
     mvn javadoc:javadoc
@@ -86,7 +78,7 @@ En una ventana de comandos, utilice el siguiente comando:
     mvn test
    ```
 Si todo sale de manera correcta debería ver esto en su ventana de comandos:
-![](img/test.PNG)
+![](./img/test.PNG)
 
 Estas pruebas están hechas para asegurar el correcto funcionamiento del cálculo de la media y desviación estándar,
 estos cálculos fueron previamente hechos en libros de estadística y fueron utilizados para asegurar la veracidad de
@@ -97,6 +89,7 @@ los mismos, adicionalmente el programa está diseñado para tener una precisión
 * [Java 8](https://www.java.com/es/) - Lenguaje de Programación.
 * [JUnit](https://junit.org/junit5/) - Pruebas de Unidad.
 * [Maven](https://maven.apache.org/) - Manejo de dependecias.
+* [Spark](https://sparkjava.com/) - Framework Web.
 
 ## Authors
 
