@@ -8,7 +8,7 @@ implementación de una Lista Enlazada, y para la gestión de peticiones REST se 
 
 * La documentación del las clases y los metodos del proyecto se encuentran en el directorio adjunto /Javadoc/apidocs.
 
-* Haga click [aqui](Reporte_Taller1AREP.pdf) para ver el reporte del proyecto.
+* Haga click [aqui](./Reporte_TallerHeroku.pdf) para ver el reporte del proyecto.
 
 ### Pre-Requisitos
 
