@@ -66,7 +66,17 @@ Adicionalmente se recomienda tener descargado los siguientes programas:
    Veremos que el aplicativo ya se está ejecutando localmente:
     ![](./img/aplicativoWeb.PNG)
 
-5. Por defecto se creó la documentación JavaDoc y fue dejada en el directorio /Javadoc, si desea generar uno nuevo
+5. Para que la aplicación funcione de manera local de manera totalmente correcta debemos modificar el archivo "app.js"
+   ubicado en el directorio "/src/main/resources/js" en la linea 14, para que corra de manera local:
+   > ```
+   > Cambiar :
+   > const url = "https://fast-tor-09008.herokuapp.com/calculator";
+   > 
+   > Por :
+   > const url = "https://localhost:4567/calculator";
+   > ```
+
+6. Por defecto se creó la documentación JavaDoc y fue dejada en el directorio /Javadoc, si desea generar uno nuevo
    utilice el siguiente comando, esta documentación quedará en el directorio /target/site/apidocs :
    ```
     mvn javadoc:javadoc
