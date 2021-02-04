@@ -106,4 +106,4 @@ los mismos, adicionalmente el programa está diseñado para tener una precisión
 * **Andres Mateo Calderón Ortega** - [Candres1019](https://github.com/Candres1019)
 
 # Licencia
-Este proyecto está licenciado bajo la GNU v3.0 - ver el archivo [LICENSE.md](https://github.com/Candres1019/Taller1-AREP/blob/main/LICENSE) para más detalles
+Este proyecto está licenciado bajo la GNU v3.0 - ver el archivo [LICENSE.md](https://github.com/Candres1019/TallerHeroku/blob/main/LICENSE) para más detalles
