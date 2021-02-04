@@ -2,7 +2,7 @@
 
 Aplicativo Web diseñado en Java haciendo uso del framework Spark con el propósito de calcular la media y la desviación
 estándar de un grupo de n datos que serán ingresados por el usuario vía web, la estructura de datos utilizada es una
-implementación de una Lista Enlazada, y para la gestión de peticiones ajax se utiliza la librería js axios.
+implementación de una Lista Enlazada, y para la gestión de peticiones REST se utiliza la librería js axios.
 
 ## Información Del Proyecto
 
@@ -47,7 +47,7 @@ Adicionalmente se recomienda tener descargado los siguientes programas:
    ![](./img/mvnPackage.PNG)
    
 3. Para ejecutar la aplicación de manera local utilizamos en la ventana de comandos el siguiente comando:
-    > * Distribuciones Linux:
+    > * Distribuciones Linux y MacOs:
     > ```
     > java $JAVA_OPTS -cp target/classes:target/dependency/* edu.escuelaing.arep.sparkweb.SparkWebApp
     > ```
